@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>positions - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-accounts.html">accounts</a><ul class='methods'><li data-type='method'><a href="module-accounts.html#.accounts_load">accounts_load</a></li></ul></li><li><a href="module-assets.html">assets</a><ul class='methods'><li data-type='method'><a href="module-assets.html#.assets_load">assets_load</a></li></ul></li><li><a href="module-portfolios.html">portfolios</a><ul class='methods'><li data-type='method'><a href="module-portfolios.html#.portfolios_load">portfolios_load</a></li></ul></li><li><a href="module-positions.html">positions</a><ul class='methods'><li data-type='method'><a href="module-positions.html#.positions_load">positions_load</a></li></ul></li><li><a href="module-reports.html">reports</a><ul class='methods'><li data-type='method'><a href="module-reports.html#.reports_portfolioPdf">reports_portfolioPdf</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">positions</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><p>String helper methods</p></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".positions_load"><span class="type-signature">(static) </span>positions_load<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>It gives position, account value and ending balance for a selected date</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const axios = require('axios');axios({  method: 'post',  url: domain + '/api/positions_load',  responseType: 'json',  data: {    sid: '[api_key]',     //The string your admin gave to you    key: '123456789',     //Portfolio key    toCcy: 'EUR',         //Currency in which the result will be provided    addZeroPos: false,    //If true, it shows also closed position    adjustFormat: true,   //If true, additional information are provided    loadAllOrders: false, //If true, current orders will be considered    date: '2021-01-02'    //Date for which the position is computed  }}).then(function (response) {console.log(response.data);// Result//{//  pos: [//    {//       qty: 200000,//       key_asset: 'XS2101558307__EUR',//       subaccount: null,//       redemption_price: '100.000000',//       issue_price: null,//       min_increment: '1000.000000',//       min_piece: '200000.000000',//       final_maturity: '2032-01-15',//       first_coupon_dt: '2021-01-15',//       payment_rank: 'Subordinated',//       industry_group: 'Banks',//       industry_sector: 'Financial',//       industry_subgroup: 'Diversified Banking Inst',//       settlement_dt: 2,//       issue_date: '2020-01-15',//       expiry2: '2032-01-15',//       coupon: '2.731000',//       calc_method: 'ACT/ACT',//       coupon_frequency: '1',//       coupon_type: 'VARIABLE',//       description: 'UNICREDIT SPA',//       is_at_margin: false,//       kind: 'BOND',//       ccy: 'EUR',//       risk_class: 'Bond Investment',//       classification: 'Bonds',//       expiry: '2032-01-15T00:00:00.000Z',//       market_sector: 'Corp',//       multiplier: 0.01,//       moody_rating: 'Baa3',//       sp_rating: 'BB+',//       fitch_rating: null,//       price_factor: 1,//       issuer: 'UNICREDIT SPA',//       type: 'CORP BOND',//       bbg_type: 'EURO-ZONE',//       is_ucts: null,//       fund_ucits: null,//       delta: '',//       underlying_contract_value: null,//       issued_amount: 1250000000,//       opt_put_call: null,//       underlying_price: null,//       fund_type: null,//       exercise_type: null,//       margin: null,//       last_price: 101.34,//       last_price_date: '2020-12-30',//       var95: null,//       var99: null,//       country: 'IT',//       price_type: null,//       risk_country: 'IT',//       jurisdiction_country: 'IT',//       class_cod: null,//       underlying_main_ticker: 'UCGIM',//       lei_issuer: '549300TRUWO2CD2G5692',//       proxy_var: null,//       is_bail_in: null,//       is_conflict_interest: null,//       is_complex_product: null,//       realPnl: 0,//       price: 94.9469,//       amount: 207918.15,//       settlement: '2021-01-05',//       fx: 1,//       rateo: 2.619075,//       chg_price_perc: 6.733342531457061,//       next_coupon: '2021-01-15',//       int_days: 353,//       duration: 4.8486445372321905,//       open: 101.36,//       high: 101.596,//       low: 101.142,//       ytd_ytm_mid: 2.5897158674153804,//       int_acc: 5238.15,//       int_acc_asset: 5238.15,//       class_spec: '',//       class_gen: '',//       principal: 202680.00000000003,//       exposure_assetCcy: 0,//       amount_asset: 207918.15000000002,//       exposure: 207918.15,//       ticker: 'XS2101558307',//       weight: 10.70980778948476//     },//     {//       qty: 200000,//       key_asset: 'XS2249600771__EUR',//       subaccount: null,//       redemption_price: '100.000000',//       issue_price: '100.000000',//       min_increment: '1000.000000',//       min_piece: '200000.000000',//       final_maturity: null,//       first_coupon_dt: '2021-04-27',//       payment_rank: 'Jr Subordinated',//       industry_group: 'Insurance',//       industry_sector: 'Financial',//       industry_subgroup: 'Multi-line Insurance',//       settlement_dt: 2,//       issue_date: '2020-10-27',//       expiry2: null,//       coupon: '6.375000',//       calc_method: 'ACT/ACT',//       coupon_frequency: '2',//       coupon_type: 'VARIABLE',//       description: 'UNIPOLSAI ASSICU',//       is_at_margin: false,//       kind: 'BOND',//       ccy: 'EUR',//       risk_class: 'Bond Investment',//       classification: 'Bonds',//       expiry: null,//       market_sector: 'Corp',//       multiplier: 0.01,//       moody_rating: 'B1',//       sp_rating: null,//       fitch_rating: 'B+',//       price_factor: 1,//       issuer: 'UNIPOLSAI ASSICURAZIONI',//       type: 'CORP BOND',//       bbg_type: 'EURO-ZONE',//       is_ucts: null,//       fund_ucits: null,//       delta: '',//       underlying_contract_value: null,//       issued_amount: 500000000,//       opt_put_call: null,//       underlying_price: null,//       fund_type: null,//       exercise_type: null,//       margin: null,//       last_price: 109.174,//       last_price_date: '2020-12-31',//       var95: null,//       var99: null,//       country: 'IT',//       price_type: null,//       risk_country: 'IT',//       jurisdiction_country: 'IT',//       class_cod: null,//       underlying_main_ticker: 'USIMIT',//       lei_issuer: '815600E31C4E7006AB54',//       proxy_var: null,//       is_bail_in: null,//       is_conflict_interest: null,//       is_complex_product: null,//       realPnl: 0,//       price: 102.35,//       amount: 220612.35,//       settlement: '2021-01-05',//       fx: 1,//       rateo: 1.1321725,//       chg_price_perc: 6.667318026380081,//       next_coupon: '2021-04-27',//       int_days: 67,//       duration: null,//       open: 109.188,//       high: 109.266,//       low: 109.188,//       ytd_ytm_mid: 0,//       int_acc: 2264.35,//       int_acc_asset: 2264.35,//       class_spec: '',//       class_gen: '',//       principal: 218348.00000000003,//       exposure_assetCcy: 0,//       amount_asset: 220612.35000000003,//       exposure: 220612.35,//       ticker: 'XS2249600771',//       weight: 11.363682605325884//     }//   ],//   accountValueComputed: 1941380.78,//   endingBalanceComputed: 70042.83,//   cashMovement: 0,//   transferedAsset: 0,//   accounts: [ '0111-1234567' ],//   stats: null,//   key_orders: [],//   objFwd: {},//   source: 'CS',//   last_ok_reconciliation_date: '2021-01-20',//   totLoan: 0// } }) .catch(function (error) {   // handle error   console.log(error); })</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>See example for details</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<!-- <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer> -->
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

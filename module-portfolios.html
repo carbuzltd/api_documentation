@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>portfolios - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-accounts.html">accounts</a><ul class='methods'><li data-type='method'><a href="module-accounts.html#.accounts_load">accounts_load</a></li></ul></li><li><a href="module-assets.html">assets</a><ul class='methods'><li data-type='method'><a href="module-assets.html#.assets_load">assets_load</a></li></ul></li><li><a href="module-portfolios.html">portfolios</a><ul class='methods'><li data-type='method'><a href="module-portfolios.html#.portfolios_load">portfolios_load</a></li></ul></li><li><a href="module-positions.html">positions</a><ul class='methods'><li data-type='method'><a href="module-positions.html#.positions_load">positions_load</a></li></ul></li><li><a href="module-reports.html">reports</a><ul class='methods'><li data-type='method'><a href="module-reports.html#.reports_portfolioPdf">reports_portfolioPdf</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">portfolios</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><p>String helper methods</p></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".portfolios_load"><span class="type-signature">(static) </span>portfolios_load<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Get all the assets (in the database) containing the string specified in the <i>search</i>. If <i>search</i> is empty, it returns all the assets in the database.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const axios = require('axios');axios({  method: 'post',  url: url + 'portfolios_load',  responseType: 'json',  data: {    sid: sid,    search: '12345'   }}).then(function (response) {   // console.log(response.data);  // [{  //   id: '8',  //   key: '123456789',  //   additional_data: null,  //   old_info: [ [Object] ],  //previous version of the saved portfolio  //   list_accounts: [ '10148375' ],  //   start_from: null,  //   description_report: null,  //   ccy: 'USD',  //   loaded_on: '2019-02-01T10:58:23.000Z',  //   loaded_by: 'Linda', //   limits: null,  //   lang: null,  //   aggregate_isin: null,  //   report_plot_cashflow: true,  //   report_plot_currency: false,  //   report_plot_classification: false,  //   report_plot_risk: false,  //   report_plot_expiry: false,  //   report_plot_issuer: false,  //   report_plot_risk_country: null,  //   report_plot_performance: false,  //   report_plot_performance_histogram: false,  //   report_table_recap: false,  //   report_table_cashflow: true,  //   report_table_position: false,  //   report_table_position_short: null,  //   report_table_cashflow_recap: true,  //   report_table_performance0: null,  //   report_table_performance1: null,  //   report_table_performance_price: null,  //   report_table_crm: null,  //   report_table_trades: null,  //   report_table_trades_period: null,  //   report_table_orders: null,  //   report_table_performance_avg: null,  //   report_table_fiscal: null,  //   report_table_costs: null,  //   use_var99: null,  //   source_ccy: null,  //   report_colour: null,  //   report_plot_colour: null,  //   benchmark: null,  //   no_subaccount: null,  //   tags: null,  //   last_ok_reconciliation_date: null,  //   investment_type: null,  //   risk_tolerance: null,  //   profile: null,  //   loss_tolerance: null,  //   knowledge: null,  //   time_horizon: null,  //   family_font: null,  //   report_index: null,  //   amount_EUR: '6663745.75',  //   amount_USD: '5504920.36',  //   amount_GBP: '7524906.17',  //   amount_CHF: '6192957.99',  //   amount: '5504920.36',  //   evaluation_at: '2021-01-29T17:08:00.889Z',  //   is_test: null  // }]}).catch(function (error) {  // handle error console.log(error);})</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>See example for details</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<!-- <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer> -->
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

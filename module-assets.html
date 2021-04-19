@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>assets - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    <h2><a href="index.html">Home</a></h2><h3>Modules</h3><ul><li><a href="module-accounts.html">accounts</a><ul class='methods'><li data-type='method'><a href="module-accounts.html#.accounts_load">accounts_load</a></li></ul></li><li><a href="module-assets.html">assets</a><ul class='methods'><li data-type='method'><a href="module-assets.html#.assets_load">assets_load</a></li></ul></li><li><a href="module-portfolios.html">portfolios</a><ul class='methods'><li data-type='method'><a href="module-portfolios.html#.portfolios_load">portfolios_load</a></li></ul></li><li><a href="module-positions.html">positions</a><ul class='methods'><li data-type='method'><a href="module-positions.html#.positions_load">positions_load</a></li></ul></li><li><a href="module-reports.html">reports</a><ul class='methods'><li data-type='method'><a href="module-reports.html#.reports_portfolioPdf">reports_portfolioPdf</a></li></ul></li></ul>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">assets</h1>
+    
+
+    
+
+
+
+
+<section>
+
+<header>
+    
+        
+            
+        
+    
+</header>
+
+<article>
+    
+        <div class="container-overview">
+        
+            
+                <div class="description usertext"><p>String helper methods</p></div>
+            
+
+            
+                
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            
+        
+        </div>
+    
+
+    
+
+    
+
+    
+    
+    
+
+     
+
+    
+
+    
+
+    
+        <h3 class="subsection-title">Methods</h3>
+
+        
+            
+
+    
+
+    <h4 class="name" id=".assets_load"><span class="type-signature">(static) </span>assets_load<span class="signature">(opts)</span><span class="type-signature"></span></h4>
+
+    
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+<div class="description usertext">
+    <p>Get all the assets (in the database) containing the string specified in the <i>search</i>. If <i>search</i> is empty, it returns all the assets in the database.</p>
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Example</h5>
+    
+    <pre class="prettyprint"><code>const axios = require('axios');axios({  method: 'post',  url: url + 'assets_load',  responseType: 'json',  data: {    sid: '[api_key]',     //The string your admin gave to you    search: 'APPLE',      //Search for assets containing this string  }}).then(function (response) {  console.log(response.data)   //Result:  //[{  //   key: 'US0378331005__USD',  //   market_sector: 'Equity',  //   kind: 'EQUITY',  //   type: null,  //   loaded_on: '2020-01-30T15:14:51.000Z',  //   loaded_by: 'AUTO',  //   bbg_type: 'Common Stock',  //   bbg_ticker: 'AAPL',  //   description: 'APPLE INC',  //   ccy: 'USD',  //   multiplier: 1,  //   country: 'US',  //   sedol: '2046251',  //   bbg_id: 'BBG000B9XRY4',  //   isin: 'US0378331005',  //   expiry: '',  //   is_at_margin: false,  //   code_underlying: null,  //   source: 'OPENFIGI',  //   failed: false,  //   exchange: 'US',  //   strike: null,  //   bbg_unique_id: 'EQ0010169500001000',  //   coupon: null,  //   to_be_checked: null,  //   issuer: 'Apple Inc',  //   cusip: '037833100',  //   coupon_frequency: null,  //   issue_date: null,  //   calc_method: null,  //   coupon_period: null,  //   additional_data: null,  //   old_info: null,  //   issue_price: null,  //   risk_class: 'Equity Investment',  //   classification: null,  //   dividend: [  //     {  //       'Declared Date': '1987-04-22T00:00:00.000Z',  //       'Ex-Date': '1987-05-11T00:00:00.000Z',  //       'Record Date': '1987-05-15T00:00:00.000Z',  //       'Payable Date': '1987-06-15T00:00:00.000Z',  //       'Dividend Amount': 0.000536,  //       'Dividend Frequency': 'Quarter',  //       'Dividend Type': 'Regular Cash'  //     }  //   ],  //   has_inflation: null,  //   external_identifiers: '',  //   has_ftt: null,  //   has_tobin: null,  //   key_market: null,  //   price_factor: null,  //   bbg_country_tax: null,  //   stamp_exchanges: null,  //   ptm_levy_exchanges: null,  //   last_price_date: '2021-01-15',  //   is_ucts: null,  //   settlement_dt: 2,  //   note: null,  //   payment_rank: null,  //   coupon_type: null,  //   industry_group: 'Computers',  //   industry_sector: 'Technology',  //   industry_subgroup: 'Computers',  //   last_price: 127.14,  //   discount_factor: null,  //   min_increment: null,  //   min_piece: null,  //   sp_rating: null,  //   moody_rating: null,  //   fitch_rating: null,  //   final_maturity: null,  //   first_coupon_dt: null,  //   last_bbg_update: '2021-01-16T18:28:27.000Z',  //   flag_fx: null,  //   fund_ucits: null,  //   underlying_contract_value: null,  //   issued_amount: null,  //   delta: null,  //   security_type: 'Common Stock',  //   security_type2: 'Common Stock',  //   fund_type: null,  //   exercise_type: null,  //   underlying_price: null,  //   underlying_id: null,  //   opt_put_call: null,  //   hist_last_price_date: '2021-01-15T00:00:00.000Z',  //   margin: null,  //   var95: null,  //   jurisdiction_country: 'US',  //   risk_country: 'US',  //   price_type: null,  //   last_tradeable_date: null,  //   certificate_type: null,  //   class_cod: null,  //   force_asset_update: null,  //   force_price_update: null,  //   mean_market_mic: null,     //   listed_mic: null,  //   underlying_main_ticker: 'AAPL',  //   lei_issuer: 'HWUPKR0MPOU8FGXBT394',  //   proxy_var: null,  //   var99: null,  //   redemption_price: null,  //   show_always: null,  //   des_cash_flow: null,  //   workout_dt_mid: null,  //   call_date: null,  //   price_from_source: null,  //   identifier_in_source_price: null,  //   description_comp: 'APPLE INC',  //   is_bail_in: null,  //   is_conflict_interest: null,  //   is_complex_product: null,  //   benchmark_composition: null,  //   ticker: 'US0378331005'  //}]}).catch(function (error) {  // handle error  console.log(error);})</code></pre>
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>opts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">object</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last"><p>See example for details</p></td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+    
+
+    
+
+    
+</article>
+
+</section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<!-- <footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a> using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer> -->
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>
